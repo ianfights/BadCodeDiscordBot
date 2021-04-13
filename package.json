@@ -1,0 +1,24 @@
+{
+  "name": "badcodediscordbot",
+  "version": "1.0.0",
+  "description": "A Discord bot that works, but with bad code.",
+  "main": "dist/index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/POKEBLOX6/BadCodeDiscordBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/POKEBLOX6/BadCodeDiscordBot/issues"
+  },
+  "homepage": "https://github.com/POKEBLOX6/BadCodeDiscordBot#readme"
+}
