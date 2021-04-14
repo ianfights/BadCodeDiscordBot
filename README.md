@@ -11,4 +11,6 @@ cron<br>
 Any type of database like MariaDB
 
 # Install Dependencies
+run ``npm i`` in the terminal in the directory you want to use the bot in.
+
 
