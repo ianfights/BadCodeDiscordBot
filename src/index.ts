@@ -3,8 +3,8 @@ import * as mysql from 'mysql';
 
 var con = mysql.createConnection({
     host: "192.168.1.159",
-    user: "pi",
-    password: "davis",
+    user: "",
+    password: "",
     database: "bot",
     multipleStatements: false
 });
