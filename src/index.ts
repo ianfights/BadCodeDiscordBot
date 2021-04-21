@@ -4,8 +4,8 @@ import { Client, Collection,} from 'discord.js'
 import {dbUser, dbPass, dbIp, token, dbName} from './config/config';
 const client = new Client();
 import config from './config/config.json';
-const PREFIX = config.prefix;
-
+const prefix = config.prefix;
+export {prefix as prefix}
 
 const con = mysql.createConnection({
     host: dbIp,
@@ -56,9 +56,9 @@ client.on('message', async message => {
         if (!command) return;
     */
 
-    if (message.content.startsWith(PREFIX)) {
+    if (message.content.startsWith(prefix)) {
 
-        const input = message.content.slice(PREFIX.length).split(' ');
+        const input = message.content.slice(prefix.length).split(' ');
         const commandName = input.shift();
         const commandArgs = input.join(' ');
         const splitArgs = commandArgs.split(' ');
