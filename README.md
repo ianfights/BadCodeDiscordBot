@@ -8,13 +8,13 @@ This project is still in development and may not work.
 # .env File
 This project uses a .env file with the format below
 
-``
+```
 TOKEN=yourToken
 DB_IP=ipToDatabase
 DB_USER=databaseUsername
 DB_PASS=databasePassword
 DB_NAME=nameOfTheDatabase (the same thing you would type in the USE sql command)
-``
+```
 
 # Dependencies
 Typescript<br>
