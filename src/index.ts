@@ -6,6 +6,7 @@ const client = new Client();
 import config from './config/config.json';
 const PREFIX = config.prefix;
 
+
 const con = mysql.createConnection({
     host: dbIp,
     user: dbUser,
@@ -34,9 +35,6 @@ function loadCommands(collection, folder) {
         }
     }
 };
-
-
-
 
 
 
@@ -86,7 +84,3 @@ client.on('message', async message => {
 
 })
 client.login(token);
-
-
-
-
