@@ -31,14 +31,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.con = void 0;
+exports.con = exports.prefix = void 0;
 const fs = __importStar(require("fs"));
 const mysql = __importStar(require("mysql"));
 const discord_js_1 = require("discord.js");
 const config_1 = require("./config/config");
 const client = new discord_js_1.Client();
 const config_json_1 = __importDefault(require("./config/config.json"));
-const PREFIX = config_json_1.default.prefix;
+const prefix = config_json_1.default.prefix;
+exports.prefix = prefix;
 const con = mysql.createConnection({
     host: config_1.dbIp,
     user: config_1.dbUser,
@@ -75,8 +76,8 @@ client.on('message', (message) => __awaiter(void 0, void 0, void 0, function* ()
     
         if (!command) return;
     */
-    if (message.content.startsWith(PREFIX)) {
-        const input = message.content.slice(PREFIX.length).split(' ');
+    if (message.content.startsWith(prefix)) {
+        const input = message.content.slice(prefix.length).split(' ');
         const commandName = input.shift();
         const commandArgs = input.join(' ');
         const splitArgs = commandArgs.split(' ');
