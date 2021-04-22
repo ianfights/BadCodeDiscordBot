@@ -70,24 +70,16 @@ client.once('ready', () => {
 });
 client.on('message', (message) => __awaiter(void 0, void 0, void 0, function* () {
     // Loop for updating the leaderboard
-    /*
-        const command = client.commands.get(commandName)
-            || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-    
-        if (!command) return;
-    */
     if (message.content.startsWith(prefix)) {
         const input = message.content.slice(prefix.length).split(' ');
         const commandName = input.shift();
         const commandArgs = input.join(' ');
-        const splitArgs = commandArgs.split(' ');
-        //member.roles.cache.has('713076591118516314');
         const command = client.commands.get(commandName)
             || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if (!command)
             return;
         try {
-            client.commands.get(command.name).execute(message, client, commandArgs, splitArgs);
+            client.commands.get(command.name).execute(message);
         }
         catch (error) {
             console.error(error);
