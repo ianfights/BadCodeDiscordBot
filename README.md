@@ -3,6 +3,7 @@ A Discord bot that works, but with bad code.
 # Note
 This project is still in development and may not work.
 
+Attempting to redsign with [Klasa](https://klasa.js.org/)
 # .env File
 This project uses a .env file with the format below
 
