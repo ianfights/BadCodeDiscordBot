@@ -32,3 +32,6 @@ const dbIp = process.env.DB_IP;
 exports.dbIp = dbIp;
 const dbName = process.env.DB_NAME;
 exports.dbName = dbName;
+if (!token || !dbUser || !dbPass || !dbIp || !dbName) {
+    throw Error("You need to fill out the enviorment variables in the .env file. \n A template can be found at https://github.com/POKEBLOX6/BadCodeDiscordBot/blob/main/README.md");
+}
