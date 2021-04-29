@@ -7,12 +7,19 @@ module.exports = {
     execute(message) {
         let member = message.mentions.members.first();
         const args = message.content.slice(index_1.prefix.length).trim().toLowerCase().split(/ +/g);
-        console.log(args);
+        if (!message.member.hasPermission("2")) {
+            message.reply('You need to have the "Kick Members" permission to use this command');
+            return;
+        }
         if (!member) {
-            message.reply('You need to mention a member for this command to work \n Usage: ``' + index_1.prefix + 'kick @user#0000 reason``');
+            message.reply('You need to mention a member in this server for this command to work \n Usage: ``' + index_1.prefix + 'kick @user#0000 reason``');
+            return;
         }
         member.kick(args[2]).then(() => {
             message.reply(`Sucessfully kicked <@${member.id}> with a reason of ${args[2]}`);
+        }).catch(err => {
+            message.channel.send(`I was unable to kick that user`);
+            console.error(err);
         });
     },
 };
