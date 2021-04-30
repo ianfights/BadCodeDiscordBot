@@ -5,7 +5,7 @@ import {dbUser, dbPass, dbIp, token, dbName} from './config/config';
 import config from './config/config.json';
 const client = new Client();
 const prefix = config.prefix;
-export {prefix as prefix}
+
 
 const con = mysql.createConnection({
     host: dbIp,
@@ -15,7 +15,6 @@ const con = mysql.createConnection({
     multipleStatements: false
 });
 
-export {con as con}
 
 client.commands = new Collection();
 loadCommands(client.commands, `${__dirname}/commands`);
@@ -71,3 +70,7 @@ client.on('message', async message => {
 
 })
 client.login(token);
+export {
+    prefix as prefix, 
+    con as con
+}

@@ -1,4 +1,3 @@
-import { con } from '../../index';
 import { prefix } from '../../index';
 module.exports = {
     name: 'kick',
