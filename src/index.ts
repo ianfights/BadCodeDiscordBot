@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as mysql from 'mysql';
 import { Client, Collection,} from 'discord.js'
 import {dbUser, dbPass, dbIp, token, dbName} from './config/config';
-const client = new Client();
 import config from './config/config.json';
+const client = new Client();
 const prefix = config.prefix;
 export {prefix as prefix}
 
