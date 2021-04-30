@@ -3,3 +3,4 @@ node_modules
 deploy.bat
 .codetasty
 dist
+test.js
