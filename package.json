@@ -4,6 +4,7 @@
   "description": "A Discord bot that works, but with bad code.",
   "main": "dist/index.js",
   "dependencies": {
+    "cron": "^1.8.2",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
