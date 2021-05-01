@@ -1,6 +1,7 @@
 import * as cron from 'cron';
+var CronJob = cron.CronJob;
 
-fucntion startCronJobs() {
+function startCronJobs() {
 	
 	
 }

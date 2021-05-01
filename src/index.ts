@@ -1,10 +1,26 @@
 import * as fs from 'fs';
 import * as mysql from 'mysql';
-import { Client, Collection,} from 'discord.js'
-import {dbUser, dbPass, dbIp, token, dbName} from './config/config';
+import { Client, Collection, } from 'discord.js'
+import { date } from 'date-and-time'
+import { dbUser, dbPass, dbIp, token, dbName } from './config/config';
 import config from './config/config.json';
+
 const client = new Client();
 const prefix = config.prefix;
+
+/*
+Database schema
+
+CREATE TABLE `moderation` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `userId` varchar(100) NOT NULL,
+    `type` varchar(50) NOT NULL,
+    `endDate` varchar(500) NOT NULL,
+    `reason` varchar(500) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+*/
 
 
 const con = mysql.createConnection({
@@ -71,6 +87,6 @@ client.on('message', async message => {
 })
 client.login(token);
 export {
-    prefix as prefix, 
-    con as con
+    prefix as prefix,
+    con as con,
 }
