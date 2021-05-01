@@ -41,7 +41,7 @@ module.exports = {
         // This switch statement also works as an argument check because of the default case!
         switch(banTime.slice(1)){
             case 'h':
-                var endTime = date.addHours(timeNow, parseInt(banTime));
+                var endTime = date.format(date.addHours(timeNow, parseInt(banTime)), 'YYYY/MM/DD HH:mm:ss');
                 con.query(`INSERT INTO moderation (userId, type, endDate, reason) VALUES ('${member.id}', 'ban' ,'${endTime}', '${banReason}')`);
                 member.ban({ reason: banReason}).then(() => {
                     message.reply(`Sucessfully banned <@${member.id}> !`);

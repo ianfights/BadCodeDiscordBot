@@ -4,7 +4,7 @@ import { Client, Collection, } from 'discord.js'
 import { date } from 'date-and-time'
 import { dbUser, dbPass, dbIp, token, dbName } from './config/config';
 import config from './config/config.json';
-
+import { startJobs } from './lib/startJobs'
 const client = new Client();
 const prefix = config.prefix;
 
@@ -59,8 +59,7 @@ client.once('ready', () => {
 
 
 client.on('message', async message => {
-    // Loop for updating the leaderboard
-
+    startJobs(message);
     if (message.content.startsWith(prefix)) {
 
         const input = message.content.slice(prefix.length).split(' ');
