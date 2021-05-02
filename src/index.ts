@@ -59,7 +59,7 @@ client.once('ready', () => {
 
 
 client.on('message', async message => {
-    startJobs(message);
+    
     if (message.content.startsWith(prefix)) {
 
         const input = message.content.slice(prefix.length).split(' ');
@@ -85,6 +85,7 @@ client.on('message', async message => {
 
 })
 client.login(token);
+
 export {
     prefix as prefix,
     con as con,
