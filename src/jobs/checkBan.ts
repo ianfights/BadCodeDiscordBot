@@ -9,7 +9,7 @@ function checkBan(message) {
         console.log(now)
         for (var i in result) {
             var formattedDate = date.parse(result[i].endDate,'YYYY/MM/DD HH:mm:ss');
-            console.log('checked a user')
+        //    console.log('checked a user')
             if(date.subtract(formattedDate, now).toMinutes() <= 0){
                 // Time has expired on the ban so we should unban them
 

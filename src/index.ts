@@ -1,12 +1,12 @@
 import * as fs from 'fs';
 import * as mysql from 'mysql';
 import { Client, Collection, } from 'discord.js'
-import { date } from 'date-and-time'
 import { dbUser, dbPass, dbIp, token, dbName } from './config/config';
 import config from './config/config.json';
 import { startJobs } from './lib/startJobs'
 const client = new Client();
 const prefix = config.prefix;
+const disbut = require('discord-buttons')(client);
 
 /*
 Database schema
@@ -55,11 +55,17 @@ function loadCommands(collection, folder) {
 
 client.once('ready', () => {
     console.log("Bot is ready");
+
 });
 
+client.on('clickButton', async (button) => {
+    if (button.id === 'click_to_function') {
+        button.channel.send(`<@${button.clicker.user.id}> You now have access to the rest of the server!`)
+    }
+});
 
 client.on('message', async message => {
-    
+    startJobs(message);
     if (message.content.startsWith(prefix)) {
 
         const input = message.content.slice(prefix.length).split(' ');
@@ -89,4 +95,6 @@ client.login(token);
 export {
     prefix as prefix,
     con as con,
+    client as client,
+    disbut as disbut,
 }

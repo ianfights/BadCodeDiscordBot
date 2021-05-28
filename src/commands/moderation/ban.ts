@@ -7,12 +7,11 @@ module.exports = {
     execute(message) {
         const timeNow = new Date();
         let member = message.mentions.members.first();
-        var username = member.user.username;
         // Time before changing into a standard var to not have to deal with array indexes
 
         let args = message.content.split(' ').splice(2).join(' ').trim().toLowerCase().split(',');
-        let banTime = args[0].trim();
-        let banReason = args[1].trim();
+        let banTime = args[0]
+        let banReason = args[1]
         console.log(`${parseInt(banTime)} \n${banReason}`)
         console.log(args);
 
@@ -35,9 +34,9 @@ module.exports = {
         
         
 
-        // Finally to actually banning the user!
-
-
+        // Finally to actually banning the user! 
+// a
+//asdf 
         // This switch statement also works as an argument check because of the default case!
         switch(banTime.slice(1)){
             case 'h':
@@ -51,7 +50,7 @@ module.exports = {
                 });
                 break;
             case 'd':
-                var endTime = date.addDays(timeNow, parseInt(banTime));
+                var endTime = date.format(date.addDays(timeNow, parseInt(banTime)), 'YYYY/MM/DD HH:mm:ss');
                 con.query(`INSERT INTO moderation (userId, type, endDate, reason) VALUES ('${member.id}', 'ban' ,'${endTime}', '${banReason}')`);
                 member.ban({ reason: banReason}).then(() => {
                     message.reply(`Sucessfully banned <@${member.id}> !`);
@@ -61,7 +60,7 @@ module.exports = {
                 });
                 break;
             case 'm':
-                var endTime = date.addMonths(timeNow, parseInt(banTime));
+                var endTime = date.format(date.addMonths(timeNow, parseInt(banTime)), 'YYYY/MM/DD HH:mm:ss');
                 con.query(`INSERT INTO moderation (userId, type, endDate, reason) VALUES ('${member.id}', 'ban' ,'${endTime}', '${banReason}')`);
                 member.ban({ reason: banReason}).then(() => {
                     message.reply(`Sucessfully banned <@${member.id}> !`);
@@ -71,7 +70,7 @@ module.exports = {
                 });
                 break;
             default: 
-                message.reply('Invalid command usage! \n Usage: ``' + prefix + 'ban @user#0000 time [h = hours, d = days, m = months]``');
+                message.reply('Invalid command usage! \n Usage: ``' + prefix + 'ban @user#0000 time [h = hours, d = days, m = months], reson``');
                 return;
         }
 
