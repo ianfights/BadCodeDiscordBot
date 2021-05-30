@@ -1,6 +1,6 @@
 node_modules
 .env
-deploy.bat
+*.bat
 .codetasty
 dist
 test.js

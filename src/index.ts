@@ -9,7 +9,21 @@ const prefix = config.prefix;
 const disbut = require('discord-buttons')(client);
 
 /*
-Database schema
+Trivia database schema
+
+
+
+CREATE TABLE `trivia` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `question` varchar(500) NOT NULL,
+    `answer` varchar(500) NOT NULL,
+    `correctAnswer` varchar(500) NOT NULL,
+    `reason` varchar(500) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+
+Moderation Database schema
 
 CREATE TABLE `moderation` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -60,7 +74,8 @@ client.once('ready', () => {
 
 client.on('clickButton', async (button) => {
     if (button.id === 'click_to_function') {
-        button.channel.send(`<@${button.clicker.user.id}> You now have access to the rest of the server!`)
+        button.channel.send(`<@${button.clicker.user.id}> You now have access to the rest of the server!`);
+       // button.defer();
     }
 });
 
